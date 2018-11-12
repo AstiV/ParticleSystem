@@ -14,29 +14,30 @@ import java.io.IOException;
 
 public class particleSystem extends PApplet {
 
-class ParticleSystem {
-  ArrayList<Particle> particleList;
+int total = 10;
 
-  ParticleSystem() {
-    particleList = new ArrayList<Particle>();
+ArrayList<Particle> plist = new ArrayList<Particle>();
+ 
+public void setup() {
+  
+  for (int i = 0; i < total; i++) {
+    plist.add(new Particle());
   }
+}
 
-  public void addParticle() {
-    particleList.add(new Particle());
+public void draw() {
+  for (int i = 0; i < plist.size(); i++) {
+    Particle p = plist.get(i);
+    p.run();
   }
+}
+class BlockParticle extends Particle {
 
-  public void runSystem() {
-    for(int i = particleList.size()-1; i >= 0; i--) {
-      Particle p = particleList.get(i);
-      p.runParticle();
-      p.updateParticle();
-
-      if (p.isDead()) {
-        particleList.remove(i);
-      }
+    public void display() {
+        stroke(0, lifespan);
+        fill(0, lifespan);
+        rect(location.x,location.y,8.0f,5.0f);
     }
-  }
-
 }
 class Particle {
   PVector location;

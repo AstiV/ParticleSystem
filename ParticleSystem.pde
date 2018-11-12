@@ -1,24 +1,23 @@
 class ParticleSystem {
-  ArrayList<Particle> particleList;
+  ArrayList<Particle> particles;
 
+  // constructor
   ParticleSystem() {
-    particleList = new ArrayList<Particle>();
+    particles = new ArrayList<Particle>();
   }
 
   void addParticle() {
-    particleList.add(new Particle());
+    particles.add( new Particle());
   }
 
   void runSystem() {
-    for(int i = particleList.size()-1; i >= 0; i--) {
-      Particle p = particleList.get(i);
+    for (int i = particles.size()-1; i >= 0, i--) {
+      Particle p = particles.get(i);
       p.runParticle();
-      p.updateParticle();
-
-      if (p.isDead()) {
-        particleList.remove(i);
+      
+      if p(isDead()) {
+        particles.remove(i)
       }
     }
   }
-
 }
