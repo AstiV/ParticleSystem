@@ -5,6 +5,7 @@ class Particle {
   float lifespan;
  
   Particle() {
+    // Here, particles are all initialized at SAME LOCATION! That's why they all start at one point!
     location = new PVector(width/2,50);
     acceleration = new PVector(0, 0.05);
     velocity = new PVector(random(-1, 1), random(-1,0));
